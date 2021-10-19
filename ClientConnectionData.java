@@ -1,5 +1,3 @@
-package day7_bca_chat_with_serialization;
-
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;

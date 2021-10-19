@@ -1,5 +1,3 @@
-package day7_bca_chat_with_serialization;
-
 public class MessageStoC_Welcome extends Message {
     public String userName;
 

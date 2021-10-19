@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BCA-Private-Chat.iml" filepath="$PROJECT_DIR$/BCA-Private-Chat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/BCA-Private-Chat.iml" filepath="$PROJECT_DIR$/.idea/BCA-Private-Chat.iml" />
     </modules>
   </component>
 </project>

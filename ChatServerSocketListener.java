@@ -34,12 +34,19 @@ public class ChatServerSocketListener  implements Runnable {
     }
 
     private void processPrivMessage(MessageCtoS_Priv m) {
-        for (ClientConnectionData c: clientList) {
-            if (c.getUserName() != null && c.getUserName().equals(m.userName)) {
-                MessageStoC_Priv output = new MessageStoC_Priv(m.userName, m.msg, m.sender);
-                c.getOut().writeObject(output);
+        try {
+            for (ClientConnectionData c: clientList) {
+                if (c.getUserName() != null && c.getUserName().equals(m.userName)) {
+                    MessageStoC_Priv output = new MessageStoC_Priv(m.userName, m.msg, m.sender);
+                    c.getOut().writeObject(output);
+                }
             }
         }
+        catch (Exception ex) {
+            System.out.println("broadcast caught exception: " + ex);
+            ex.printStackTrace();
+        }
+
     }
 
     /**

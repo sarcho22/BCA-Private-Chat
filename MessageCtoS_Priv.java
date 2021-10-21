@@ -1,6 +1,7 @@
 public class MessageCtoS_Priv extends Message {
     public String msg;
     public String userName;
+    public String sender;
 
     public MessageCtoS_Priv(String userName, String msg, String sender) {
         this.userName = userName;

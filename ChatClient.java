@@ -32,7 +32,14 @@ public class ChatClient {
 
         String line = in.nextLine().trim();
         while (!line.toLowerCase().startsWith("/quit")) {
-            sendMessage(new MessageCtoS_Chat(line));
+            if (line.toLowerCase().startsWith("@")) {
+                String[] splitMsg = line.split(" ", 2);
+                MessageCtoS_Priv privMsg = new MessageCtoS_Priv(splitMsg[0], splitMsg[1], name);
+                sendMessage(privMsg);
+            }
+            else {
+                sendMessage(new MessageCtoS_Chat(line));
+            }
             line = in.nextLine().trim();
         }
         sendMessage(new MessageCtoS_Quit());

@@ -33,6 +33,15 @@ public class ChatServerSocketListener  implements Runnable {
         broadcast(new MessageStoC_Chat(client.getUserName(), m.msg), client);
     }
 
+    private void processPrivMessage(MessageCtoS_Priv m) {
+        for (ClientConnectionData c: clientList) {
+            if (c.getUserName() != null && c.getUserName().equals(m.userName)) {
+                MessageStoC_Priv output = new MessageStoC_Priv(m.userName, m.msg, m.sender);
+                c.getOut().writeObject(output);
+            }
+        }
+    }
+
     /**
      * Broadcasts a message to all clients connected to the server.
      */
@@ -69,6 +78,9 @@ public class ChatServerSocketListener  implements Runnable {
                 }
                 else if (msg instanceof MessageCtoS_Chat) {
                     processChatMessage((MessageCtoS_Chat) msg);
+                }
+                else if (msg instanceof MessageCtoS_Priv) {
+                    processPrivMessage((MessageCtoS_Priv) msg);
                 }
                 else {
                     System.out.println("Unhandled message type: " + msg.getClass());

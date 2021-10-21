@@ -1,6 +1,7 @@
 public class MessageStoC_Priv extends Message {
     public String userName;
     public String msg;
+    public String sender;
 
     public MessageStoC_Priv(String userName, String msg, String sender) {
         this.userName = userName;

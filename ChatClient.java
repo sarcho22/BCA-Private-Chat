@@ -34,7 +34,7 @@ public class ChatClient {
         while (!line.toLowerCase().startsWith("/quit")) {
             if (line.toLowerCase().startsWith("@")) {
                 String[] splitMsg = line.split(" ", 2);
-                MessageCtoS_Priv privMsg = new MessageCtoS_Priv(splitMsg[0], splitMsg[1], name);
+                MessageCtoS_Priv privMsg = new MessageCtoS_Priv(splitMsg[0].substring(1), splitMsg[1], name);
                 sendMessage(privMsg);
             }
             else {
